@@ -14,7 +14,7 @@
         </div>
 
         <!-- Import our compiled Elm code -->
-        <script src="js/letterfall.js"></script>
+        <script src="js/letterfall.min.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <!-- Run our Elm app! -->
         <script>
@@ -23,10 +23,7 @@
              // would call "Elm.MyThing.Root.embed(node)" instead.
              Elm.Letterfall.embed(document.getElementById("app"));
 
-         app.ports.d3Update.subscribe(function(letters) {
-             update(letters)
-             return null
-         })
+         app.ports.d3Update.subscribe(update)
          // right now, lifted directly from update pattern III
          function update(data){
              console.log(data)
